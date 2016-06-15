@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Flower Jigsaw Puzzles</title>
+		<script>
+			
+			var strDevice = "";
+			var strDeviceName = "";
+			
+			function funDevicePrep(){
+				intDeviceWidth = parseInt(document.getElementById("body_all").offsetWidth);
+				intDeviceHeight = parseInt(document.getElementById("body_all").offsetHeight);
+				if(intDeviceWidth == 1024){
+					strDevice = "ipad";
+					strDeviceName = "iPad";
+				}else if(intDeviceWidth == 568){
+					strDevice = "iphone5";
+					strDeviceName = "iPhone";
+				}else{
+					strDevice = "iphone";
+					strDeviceName = "iPhone";
+				}
+				document.getElementById("body_all").className = "body_" + strDevice;
+			}
+			
+			function funSuccess(){
+				//
+			}
+			
+			function funError(){
+				//
+			}
+			
+			function preventBehavior(e)
+			{
+				e.preventDefault();
+			};
+			function funPuzzleSelect(){
+				window.location.href = "puzzle_select.html";
+			}
+			
+			function funStart(){
+				funDevicePrep();
+				document.getElementById("div_start_button").addEventListener('touchend', function(){funPuzzleSelect();}, false);
+			}
+		</script>
+		<style>
+			/*
+				ALL DEVICE CSS
+			*/
+			body, div, img{
+				margin: 0px;
+				padding: 0px;
+			}
+			#div_container{
+				background-size: 100%;
+			}
+			#div_start_button{
+				background: url('img/start.png');
+				background-size: 100%;
+				position: absolute;
+				-webkit-animation-duration: 2s;
+				-webkit-animation-timing-function: ease-in-out;
+				-webkit-animation-iteration-count: infinite;
+				-webkit-animation-name: anmStart;
+			}
+			@-webkit-keyframes anmStart
+			{
+				0%	{	-webkit-transform: scale(1.0);}
+				50% {	-webkit-transform: scale(1.1);}
+				100%{	-webkit-transform: scale(1.0);}
+			}
+			#div_piece_red{
+				background: url('img/piece_red.png');
+				background-size: 100%;
+				position: absolute;
+				-webkit-animation-duration: 5s;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-iteration-count: infinite;
+			}
+			#div_piece_green{
+				background: url('img/piece_green.png');
+				background-size: 100%;
+				position: absolute;
+				-webkit-animation-duration: 7s;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-iteration-count: infinite;
+			}
+			#div_piece_blue{
+				background: url('img/piece_blue.png');
+				background-size: 100%;
+				position: absolute;
+				-webkit-animation-duration: 3s;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-iteration-count: infinite;
+			}
+			#div_piece_yellow{
+				background: url('img/piece_yellow.png');
+				background-size: 100%;
+				position: absolute;
+				-webkit-animation-duration: 8s;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-iteration-count: infinite;
+			}
+			#div_piece_purple{
+				background: url('img/piece_purple.png');
+				background-size: 100%;
+				position: absolute;
+				-webkit-animation-duration: 4s;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-iteration-count: infinite;
+			}
+			#div_piece_orange{
+				background: url('img/piece_orange.png');
+				background-size: 100%;
+				position: absolute;
+				-webkit-animation-duration: 6s;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-iteration-count: infinite;
+			}
+							/*
+							 iPad CSS - Begin
+							*/
+							.body_ipad #div_container{
+								background: url('img/background_index_ipad.jpg');
+								width: 1024px;
+								height: 748px;
+							}
+							.body_ipad #div_start_button{
+								width: 150px;
+								height: 150px;
+								top: 301px;
+								left: 437px;
+							}
+							.body_ipad #div_piece_red{
+								width: 129px;
+								height: 218px;
+								top: -129px;
+								left: 100px;
+								-webkit-animation-name: anmPieceRediPad;
+							}
+							@-webkit-keyframes anmPieceRediPad
+							{
+								0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+								25% {-webkit-transform: translate(0px,250px)	scale(1.1) rotate(-30deg);}
+								50% {-webkit-transform: translate(0px,500px)	scale(1.2) rotate(-90deg);}
+								75% {-webkit-transform: translate(0px,750px)	scale(1.1) rotate(-200deg);}
+								100%{-webkit-transform: translate(0px,1000px)	scale(1.0) rotate(-300deg);}
+							}
+							.body_ipad #div_piece_green{
+								width: 206px;
+								height: 135px;
+								top: -135px;
+								left: 200px;
+								-webkit-animation-name: anmPieceGreeniPad;
+							}
+							@-webkit-keyframes anmPieceGreeniPad
+							{
+								0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+								25% {-webkit-transform: translate(0px,250px)	scale(1.1) rotate(-30deg);}
+								50% {-webkit-transform: translate(0px,500px)	scale(1.2) rotate(-90deg);}
+								75% {-webkit-transform: translate(0px,750px)	scale(1.1) rotate(-200deg);}
+								100%{-webkit-transform: translate(0px,1000px)	scale(1.0) rotate(-300deg);}
+							}
+							.body_ipad #div_piece_blue{
+								width: 128px;
+								height: 218px;
+								top: -218px;
+								left: 280px;
+								-webkit-animation-name: anmPieceBlueiPad;
+							}
+							@-webkit-keyframes anmPieceBlueiPad
+							{
+								0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+								25% {-webkit-transform: translate(0px,250px)	scale(1.1) rotate(-30deg);}
+								50% {-webkit-transform: translate(0px,500px)	scale(1.2) rotate(-90deg);}
+								75% {-webkit-transform: translate(0px,750px)	scale(1.1) rotate(-200deg);}
+								100%{-webkit-transform: translate(0px,1000px)	scale(1.0) rotate(-300deg);}
+							}
+							.body_ipad #div_piece_yellow{
+								width: 163px;
+								height: 215px;
+								top: -215px;
+								left: 600px;
+								-webkit-animation-name: anmPieceYellowiPad;
+							}
+							@-webkit-keyframes anmPieceYellowiPad
+							{
+								0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+								25% {-webkit-transform: translate(0px,250px)	scale(1.1) rotate(-20deg);}
+								50% {-webkit-transform: translate(0px,500px)	scale(1.2) rotate(-80deg);}
+								75% {-webkit-transform: translate(0px,750px)	scale(1.1) rotate(-150deg);}
+								100%{-webkit-transform: translate(0px,1000px)	scale(1.0) rotate(-300deg);}
+							}
+							.body_ipad #div_piece_purple{
+								width: 179px;
+								height: 140px;
+								top: -179px;
+								left: 750px;
+								-webkit-animation-name: anmPiecePurpleiPad;
+							}
+							@-webkit-keyframes anmPiecePurpleiPad
+							{
+								0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+								25% {-webkit-transform: translate(0px,250px)	scale(1.1) rotate(-60deg);}
+								50% {-webkit-transform: translate(0px,500px)	scale(1.2) rotate(-130deg);}
+								75% {-webkit-transform: translate(0px,750px)	scale(1.1) rotate(-210deg);}
+								100%{-webkit-transform: translate(0px,1000px)	scale(1.0) rotate(-300deg);}
+							}
+							.body_ipad #div_piece_orange{
+								width: 179px;
+								height: 140px;
+								top: -179px;
+								left: 800px;
+								-webkit-animation-name: anmPieceOrangeiPad;
+							}
+							@-webkit-keyframes anmPieceOrangeiPad
+							{
+								0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+								25% {-webkit-transform: translate(0px,250px)	scale(1.1) rotate(-100deg);}
+								50% {-webkit-transform: translate(0px,500px)	scale(1.2) rotate(-180deg);}
+								75% {-webkit-transform: translate(0px,750px)	scale(1.1) rotate(-270deg);}
+								100%{-webkit-transform: translate(0px,1000px)	scale(1.0) rotate(-300deg);}
+							}
+							/*
+							 iPad CSS - End
+							*/
+			
+			/*
+			 iPhone CSS - Begin
+			 */
+			.body_iphone #div_container{
+				background: url('img/background_index_iphone.jpg');
+				width: 480px;
+				height: 300px;
+			}
+			.body_iphone #div_start_button{
+				width: 80px;
+				height: 80px;
+				top: 130px;
+				left: 200px;
+			}
+			.body_iphone #div_piece_red{
+				width: 86px;
+				height: 145px;
+				top: -90px;
+				left: 30px;
+				-webkit-animation-name: anmPieceRediPhone;
+			}
+			@-webkit-keyframes anmPieceRediPhone
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-30deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-90deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-200deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			.body_iphone #div_piece_green{
+				width: 137px;
+				height: 90px;
+				top: -140px;
+				left: 70px;
+				-webkit-animation-name: anmPieceGreeniPhone;
+			}
+			@-webkit-keyframes anmPieceGreeniPhone
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-30deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-90deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-200deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			.body_iphone #div_piece_blue{
+				width: 86px;
+				height: 145px;
+				top: -146px;
+				left: 90px;
+				-webkit-animation-name: anmPieceBlueiPhone;
+			}
+			@-webkit-keyframes anmPieceBlueiPhone
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-30deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-90deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-200deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			.body_iphone #div_piece_yellow{
+				width: 109px;
+				height: 143px;
+				top: -144px;
+				left: 300px;
+				-webkit-animation-name: anmPieceYellowiPhone;
+			}
+			@-webkit-keyframes anmPieceYellowiPhone
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-20deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-80deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-150deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			.body_iphone #div_piece_purple{
+				width: 120px;
+				height: 93px;
+				top: -122px;
+				left: 320px;
+				-webkit-animation-name: anmPiecePurpleiPhone;
+			}
+			@-webkit-keyframes anmPiecePurpleiPhone
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-60deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-130deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-210deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			.body_iphone #div_piece_orange{
+				width: 120px;
+				height: 93px;
+				top: -121px;
+				left: 340px;
+				-webkit-animation-name: anmPieceOrangeiPhone;
+			}
+			@-webkit-keyframes anmPieceOrangeiPhone
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-100deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-180deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-270deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			/*
+			 iPhone CSS - End
+			 */
+			
+			/*
+			 iPhone5 CSS - Begin
+			 */
+			.body_iphone5 #div_container{
+				background: url('img/background_index_iphone5.jpg');
+				width: 569px;
+				height: 300px;
+			}
+			.body_iphone5 #div_start_button{
+				width: 80px;
+				height: 80px;
+				top: 130px;
+				left: 244px;
+			}
+			.body_iphone5 #div_piece_red{
+				width: 86px;
+				height: 145px;
+				top: -90px;
+				left: 30px;
+				-webkit-animation-name: anmPieceRediPhone5;
+			}
+			@-webkit-keyframes anmPieceRediPhone5
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-30deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-90deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-200deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			.body_iphone5 #div_piece_green{
+				width: 137px;
+				height: 90px;
+				top: -140px;
+				left: 70px;
+				-webkit-animation-name: anmPieceGreeniPhone5;
+			}
+			@-webkit-keyframes anmPieceGreeniPhone5
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-30deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-90deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-200deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			.body_iphone5 #div_piece_blue{
+				width: 86px;
+				height: 145px;
+				top: -146px;
+				left: 110px;
+				-webkit-animation-name: anmPieceBlueiPhone5;
+			}
+			@-webkit-keyframes anmPieceBlueiPhone5
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-30deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-90deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-200deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			.body_iphone5 #div_piece_yellow{
+				width: 109px;
+				height: 143px;
+				top: -144px;
+				left: 350px;
+				-webkit-animation-name: anmPieceYellowiPhone5;
+			}
+			@-webkit-keyframes anmPieceYellowiPhone5
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-20deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-80deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-150deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			.body_iphone5 #div_piece_purple{
+				width: 120px;
+				height: 93px;
+				top: -122px;
+				left: 370px;
+				-webkit-animation-name: anmPiecePurpleiPhone5;
+			}
+			@-webkit-keyframes anmPiecePurpleiPhone5
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-60deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-130deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-210deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			.body_iphone5 #div_piece_orange{
+				width: 120px;
+				height: 93px;
+				top: -121px;
+				left: 420px;
+				-webkit-animation-name: anmPieceOrangeiPhone5;
+			}
+			@-webkit-keyframes anmPieceOrangeiPhone5
+			{
+				0%	{-webkit-transform: translate(0px,0px)		scale(1.0) rotate(0deg);}
+				25% {-webkit-transform: translate(0px,110px)	scale(1.1) rotate(-100deg);}
+				50% {-webkit-transform: translate(0px,220px)	scale(1.2) rotate(-180deg);}
+				75% {-webkit-transform: translate(0px,330px)	scale(1.1) rotate(-270deg);}
+				100%{-webkit-transform: translate(0px,450px)	scale(1.0) rotate(-300deg);}
+			}
+			/*
+			 iPhone5 CSS - End
+			 */
+			
+						
+		</style>
+		
+    </head>
+    <body id="body_all">
+		<div id="div_container">
+			<div id="div_start_button"></div>
+			<div id="div_piece_red"></div>
+			<div id="div_piece_green"></div>
+			<div id="div_piece_blue"></div>
+			<div id="div_piece_yellow"></div>
+			<div id="div_piece_purple"></div>
+			<div id="div_piece_orange"></div>
+		</div>
+		<div id="div_preload"></div>
+        <script type="text/javascript" src="cordova-2.2.0rc1.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+			</script>
+    </body>
+</html>

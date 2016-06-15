@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Scenic Landscape Puzzles</title>
+		<script>
+			var strPuzzlePrefix = "div_option_puzzle";
+			var strDevice = "";
+			var strDeviceName = "";
+			
+			function funDevicePrep(){
+				intDeviceWidth = parseInt(document.getElementById("body_all").offsetWidth);
+				intDeviceHeight = parseInt(document.getElementById("body_all").offsetHeight);
+				if(intDeviceWidth == 1024){
+					strDevice = "ipad";
+					strDeviceName = "iPad";
+				}else if(intDeviceWidth == 568){
+					strDevice = "iphone5";
+					strDeviceName = "iPhone";
+				}else{
+					strDevice = "iphone";
+					strDeviceName = "iPhone";
+				}
+				document.getElementById("body_all").className = "body_" + strDevice;
+			}
+			
+			function funSuccess(){
+				//
+			}
+			
+			function funError(){
+				//
+			}
+			
+			function preventBehavior(e)
+			{
+				e.preventDefault();
+			};
+			
+			function funBack(){
+				window.location.href = "index.html";
+			}
+			
+			function funLaunchPuzzle(e){
+				intPuzzleNumber = e.target.id.replace(strPuzzlePrefix,"");
+				window.location.href = "puzzle_master.html?puzzle=" + intPuzzleNumber;
+			}
+			
+			function funStart(){
+				funDevicePrep();
+				document.getElementById("div_back_button").addEventListener('touchend', function(){funBack();}, false);
+				for (var i=1;i<49;i++){
+					var tempDiv = document.createElement("div");
+					tempDiv.setAttribute("id", strPuzzlePrefix + i);
+					tempDiv.className = "div_option_puzzle";
+					tempDiv.style.backgroundImage = "url('img/puzzle_thumbs/plane" + i + ".jpg')";
+					document.getElementById("div_puzzles_cont").appendChild(tempDiv);
+					document.getElementById(strPuzzlePrefix + i).addEventListener('touchend', funLaunchPuzzle, false);
+				}
+			}
+		</script>
+		<style>
+			
+			
+			
+			
+			
+			
+			/*
+			 ALL DEVICE CSS
+			 */
+			body, div, img{
+				margin: 0px;
+				padding: 0px;
+			}
+			#div_container{
+				background-size: 100%;
+			}
+			#div_back_button{
+				background: url('img/back.png');
+				background-size: 100%;
+				position: absolute;
+			}
+			#div_select_text{
+				background: url('img/choose_puzzle_text.png');
+				background-size: 100%;
+				position: absolute;
+			}
+			#div_puzzles_cont{
+				position: absolute;
+			}
+			.div_option_puzzle{
+				background-size: 100%;
+				float: left;
+				border: 2px solid #000;
+			}
+			
+				/*
+				 iPad CSS - Begin
+				 */
+				.body_ipad #div_container{
+					background: url('img/background_general_ipad.jpg');
+					width: 1024px;
+					height: 748px;
+				}
+				.body_ipad #div_back_button{
+					width: 83px;
+					height: 86px;
+					top: 7px;
+					left: 7px;
+				}
+				.body_ipad #div_select_text{
+					width: 434px;
+					height: 59px;
+					top: 20px;
+					left: 290px;
+				}
+				.body_ipad #div_puzzles_cont{
+					left: 32px;
+					top: 134px;
+					width: 984px;
+					height: 608px;
+				}
+				.body_ipad .div_option_puzzle{
+					width: 100px;
+					height: 75px;
+					margin: 8px;
+				}
+				/*
+				 iPad CSS - End
+				 */
+			
+			
+			
+			
+			
+				/*
+				 iPhone CSS - Begin
+				 */
+				.body_iphone #div_container{
+					background: url('img/background_general_iphone.jpg');
+					width: 480px;
+					height: 300px;
+				}
+				.body_iphone #div_back_button{
+					width: 40px;
+					height: 40px;
+					top: 3px;
+					left: 3px;
+				}
+				.body_iphone #div_select_text{
+					width: 200px;
+					height: 26px;
+					top: 10px;
+					left: 140px;
+				}
+				.body_iphone #div_puzzles_cont{
+					left: 24px;
+					top: 50px;
+					width: 432px;
+					height: 244px;
+				}
+				.body_iphone .div_option_puzzle{
+					width: 44px;
+					height: 33px;
+					margin: 2px 3px 2px 3px;
+				}
+				/*
+				 iPhone CSS - End
+				 */
+			
+			
+			
+			
+			
+			
+			
+				/*
+				 iPhone5 CSS - Begin
+				 */
+				.body_iphone5 #div_container{
+					background: url('img/background_general_iphone5.jpg');
+					width: 569px;
+					height: 300px;
+				}
+				.body_iphone5 #div_back_button{
+					width: 44px;
+					height: 44px;
+					top: 5px;
+					left: 5px;
+				}
+				.body_iphone5 #div_select_text{
+					width: 200px;
+					height: 26px;
+					top: 14px;
+					left: 180px;
+				}
+				.body_iphone5 #div_puzzles_cont{
+					left: 66px;
+					top: 54px;
+					width: 432px;
+					height: 244px;
+				}
+				.body_iphone5 .div_option_puzzle{
+					width: 44px;
+					height: 33px;
+					margin: 2px 3px 2px 3px;
+				}
+				/*
+				 iPhone5 CSS - End
+				 */
+
+			
+			
+		</style>
+    </head>
+    <body id="body_all">
+		<div id="div_container">
+			<div id="div_back_button"></div>
+			<div id="div_select_text"></div>
+			<div id="div_puzzles_cont"></div>
+		</div>
+		<div id="div_preload"></div>
+        <script type="text/javascript" src="cordova-2.2.0rc1.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+			</script>
+    </body>
+</html>
